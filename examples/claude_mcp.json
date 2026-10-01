@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "ultradebate": {
+      "type": "stdio",
+      "command": "/path/to/ultradebate/.venv/bin/python",
+      "args": ["-m", "ultradebate.server"]
+    }
+  }
+}

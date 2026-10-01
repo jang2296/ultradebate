@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ultradebate-mcp"
+version = "0.1.0"
+description = "MCP tools for Claude Code and Codex CLI collaboration, messaging, and peer review"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "ultradebate authors" }]
+keywords = ["mcp", "model-context-protocol", "multi-agent", "claude", "codex", "gemini", "debate"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS :: MacOS X",
+]
+dependencies = [
+    "mcp>=1.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.4",
+]
+mlp = [
+    "scikit-learn>=1.3",
+    "numpy>=1.24",
+    "joblib>=1.3",
+    "matplotlib>=3.7",
+    "pandas>=2.0",
+]
+
+[project.scripts]
+ultradebate-mcp = "ultradebate.server:main"
+ultradebate-test = "ultradebate.cli:main"
+
+[project.urls]
+Documentation = "https://github.com/jang2296/ultradebate#readme"
+Source = "https://github.com/jang2296/ultradebate"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"

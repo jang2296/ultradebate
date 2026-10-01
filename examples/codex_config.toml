@@ -1,0 +1,3 @@
+[mcp_servers.ultradebate]
+command = "/path/to/ultradebate/.venv/bin/python"
+args = ["-m", "ultradebate.server"]
